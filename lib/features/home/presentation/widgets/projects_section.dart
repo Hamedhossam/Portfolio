@@ -44,7 +44,9 @@ class ProjectsSection extends StatelessWidget {
             ),
             itemCount: StaticData.projects.length,
             itemBuilder: (context, index) {
-              return _buildProjectCard(StaticData.projects[index]).animate().fade(delay: (100 * index).ms).slideY(begin: 0.2);
+              return _buildProjectCard(
+                StaticData.projects[index],
+              ).animate().fade(delay: (100 * index).ms).slideY(begin: 0.2);
             },
           ),
         ],
@@ -53,9 +55,9 @@ class ProjectsSection extends StatelessWidget {
   }
 
   Widget _buildProjectCard(ProjectModel project) {
+    bool isHovered = false;
     return StatefulBuilder(
       builder: (context, setState) {
-        bool isHovered = false;
         return MouseRegion(
           onEnter: (_) => setState(() => isHovered = true),
           onExit: (_) => setState(() => isHovered = false),
@@ -66,16 +68,20 @@ class ProjectsSection extends StatelessWidget {
               color: AppColors.surfaceColor,
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: isHovered ? AppColors.electricBlueGradient.first : AppColors.borderColor,
+                color: isHovered
+                    ? AppColors.electricBlueGradient.first
+                    : AppColors.borderColor,
                 width: isHovered ? 2 : 1,
               ),
               boxShadow: isHovered
                   ? [
                       BoxShadow(
-                        color: AppColors.electricBlueGradient.first.withOpacity(0.3),
+                        color: AppColors.electricBlueGradient.first.withOpacity(
+                          0.3,
+                        ),
                         blurRadius: 20,
                         spreadRadius: 2,
-                      )
+                      ),
                     ]
                   : [],
             ),
@@ -92,8 +98,20 @@ class ProjectsSection extends StatelessWidget {
                       // TODO: replace placeholder with NetworkImage or AssetImage based on imagePath
                       child: Stack(
                         children: [
-                          Center(
-                            child: Icon(Icons.image, size: 64, color: AppColors.textMuted.withOpacity(0.5)),
+                          // Center(
+                          //   child: Icon(
+                          //     Icons.image,
+                          //     size: 64,
+                          //     color: AppColors.textMuted.withOpacity(0.5),
+                          //   ),
+                          // ),
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(project.imagePath),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           if (isHovered)
                             Container(
@@ -104,14 +122,24 @@ class ProjectsSection extends StatelessWidget {
                                   children: [
                                     if (project.playStoreUrl != null)
                                       IconButton(
-                                        icon: const FaIcon(FontAwesomeIcons.googlePlay, color: Colors.white, size: 32),
-                                        onPressed: () => _launchUrl(project.playStoreUrl!),
+                                        icon: const FaIcon(
+                                          FontAwesomeIcons.googlePlay,
+                                          color: Colors.white,
+                                          size: 32,
+                                        ),
+                                        onPressed: () =>
+                                            _launchUrl(project.playStoreUrl!),
                                       ),
                                     if (project.appStoreUrl != null) ...[
                                       const SizedBox(width: 24),
                                       IconButton(
-                                        icon: const FaIcon(FontAwesomeIcons.appStoreIos, color: Colors.white, size: 32),
-                                        onPressed: () => _launchUrl(project.appStoreUrl!),
+                                        icon: const FaIcon(
+                                          FontAwesomeIcons.appStoreIos,
+                                          color: Colors.white,
+                                          size: 32,
+                                        ),
+                                        onPressed: () =>
+                                            _launchUrl(project.appStoreUrl!),
                                       ),
                                     ],
                                   ],
@@ -143,15 +171,19 @@ class ProjectsSection extends StatelessWidget {
                           Row(
                             children: project.techStack
                                 .take(3)
-                                .map((tech) => Padding(
-                                      padding: const EdgeInsets.only(right: 8),
-                                      child: Text(
-                                        tech,
-                                        style: AppTextStyles.bodySm.copyWith(color: AppColors.violetGradient.first),
+                                .map(
+                                  (tech) => Padding(
+                                    padding: const EdgeInsets.only(right: 8),
+                                    child: Text(
+                                      tech,
+                                      style: AppTextStyles.bodySm.copyWith(
+                                        color: AppColors.violetGradient.first,
                                       ),
-                                    ))
+                                    ),
+                                  ),
+                                )
                                 .toList(),
-                          )
+                          ),
                         ],
                       ),
                     ),

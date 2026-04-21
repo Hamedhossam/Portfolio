@@ -117,10 +117,11 @@ class StaticData {
           'Lost-and-found platform with interactive maps, multi-image uploads, and push notifications.',
       techStack: ['Flutter', 'Firebase', 'Google Maps'],
       imagePath:
-          'assets/images/projects/missing_board.png', // TODO: replace with assets/images/projects/missing_board.png
+          'assets/images/OcfM9k4S.jpg', // TODO: replace with assets/images/projects/missing_board.png
       playStoreUrl:
-          'https://play.google.com/store/apps/details?id=com.amami.missingboard', // placeholder
-      appStoreUrl: 'https://apps.apple.com/app/id1234567890', // placeholder
+          'https://play.google.com/store/apps/details?id=com.amami.missingboard.client', // placeholder
+      appStoreUrl:
+          'https://apps.apple.com/us/app/missing-board-client/id6759099311', // placeholder
     ),
     ProjectModel(
       title: 'Mini Market',
@@ -128,8 +129,11 @@ class StaticData {
           'Local shopping & delivery with real-time tracking, in-app chat, and multi-language support.',
       techStack: ['Flutter', 'BLoC', 'WebSockets'],
       imagePath:
-          'assets/images/projects/mini_market.png', // TODO: replace with assets/images/projects/mini_market.png
-      playStoreUrl: 'https://play.google.com',
+          'assets/images/Gemini_Generated_Image_h8o8agh8o8agh8o8.png', // TODO: replace with assets/images/projects/mini_market.png
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.ammami.minimarket',
+      appStoreUrl:
+          'https://apps.apple.com/us/app/mini-market/id6758721103', // placeholder
     ),
     ProjectModel(
       title: 'Propai CRM',
@@ -137,15 +141,18 @@ class StaticData {
           'AI-powered real estate CRM with analytics dashboards and role-based access.',
       techStack: ['Flutter', 'Supabase', 'REST API'],
       imagePath:
-          'assets/images/projects/propai_crm.png', // TODO: replace with assets/images/projects/propai_crm.png
+          'assets/images/Gemini_Generated_Image_a1zjjxa1zjjxa1zj.png', // TODO: replace with assets/images/projects/propai_crm.png
+      appStoreUrl: 'https://apps.apple.com/us/app/propai-crm/id6756882855',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.rocakaidev.crm_mobile_app',
     ),
-    ProjectModel(
-      title: 'E-commerce App',
-      description:
-          'Shopping application featuring secure payment gateways and personalized recommendations.',
-      techStack: ['Flutter', 'Firebase', 'Payment Gateway'],
-      imagePath:
-          'assets/images/projects/ecommerce.png', // TODO: replace with assets/images/projects/ecommerce.png
-    ),
+    // ProjectModel(
+    //   title: 'E-commerce App',
+    //   description:
+    //       'Shopping application featuring secure payment gateways and personalized recommendations.',
+    //   techStack: ['Flutter', 'Firebase', 'Payment Gateway'],
+    //   imagePath:
+    //       'assets/images/projects/ecommerce.png', // TODO: replace with assets/images/projects/ecommerce.png
+    // ),
   ];
 }
