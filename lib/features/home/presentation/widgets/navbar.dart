@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/download_helper_stub.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_styles.dart';
 import '../../../../core/utils/responsive_helper.dart';
@@ -31,7 +32,8 @@ class Navbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _buildLogo(),
-            if (ResponsiveHelper.isDesktop(context) || ResponsiveHelper.isTablet(context))
+            if (ResponsiveHelper.isDesktop(context) ||
+                ResponsiveHelper.isTablet(context))
               Row(
                 children: [
                   _navItem('Home', 'home'),
@@ -62,10 +64,7 @@ class Navbar extends StatelessWidget {
       shaderCallback: (bounds) => LinearGradient(
         colors: AppColors.electricBlueGradient,
       ).createShader(bounds),
-      child: Text(
-        'HH',
-        style: AppTextStyles.h3.copyWith(color: Colors.white),
-      ),
+      child: Text('HH', style: AppTextStyles.h3.copyWith(color: Colors.white)),
     );
   }
 
@@ -98,7 +97,9 @@ class Navbar extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            downloadCV();
+          },
           style: TextButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           ),

@@ -5,6 +5,7 @@ import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_styles.dart';
 import '../../../../core/utils/responsive_helper.dart';
 import '../../../../data/static_data.dart';
+import '../../../../core/utils/download_helper.dart';
 
 class HeroSection extends StatelessWidget {
   final VoidCallback onProjectsTap;
@@ -138,7 +139,9 @@ class HeroSection extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    downloadCV();
+                  },
                   child: Text(
                     'Download CV',
                     style: AppTextStyles.button.copyWith(
