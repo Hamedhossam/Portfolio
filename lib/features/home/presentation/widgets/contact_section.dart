@@ -28,6 +28,21 @@ class _ContactSectionState extends State<ContactSection> {
   }
 
   void _submitForm() {
+    if (_emailController.text.isEmpty ||
+        _nameController.text.isEmpty ||
+        _messageController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Please fill all the fields!',
+            style: AppTextStyles.body,
+          ),
+          backgroundColor: AppColors.electricBlueGradient.first,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
     if (_formKey.currentState!.validate()) {
       // TODO: Replace with mailto or API integration
       ScaffoldMessenger.of(context).showSnackBar(
@@ -164,14 +179,14 @@ class _ContactSectionState extends State<ContactSection> {
             _buildTextField(
               controller: _nameController,
               label: 'Name',
-              validator: (v) => v!.isEmpty ? 'Please enter your name' : null,
+              validator: (v) => v!.isEmpty ? null : null,
             ),
             const SizedBox(height: 24),
             _buildTextField(
               controller: _emailController,
               label: 'Email',
               validator: (v) => v!.isEmpty
-                  ? 'Please enter your email'
+                  ? null
                   : (!v.contains('@') ? 'Invalid email' : null),
             ),
             const SizedBox(height: 24),
@@ -179,7 +194,7 @@ class _ContactSectionState extends State<ContactSection> {
               controller: _messageController,
               label: 'Message',
               maxLines: 5,
-              validator: (v) => v!.isEmpty ? 'Please enter your message' : null,
+              validator: (v) => v!.isEmpty ? null : null,
             ),
             const SizedBox(height: 32),
             SizedBox(
