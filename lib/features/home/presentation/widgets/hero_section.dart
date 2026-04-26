@@ -197,7 +197,7 @@ class HeroSection extends StatelessWidget {
                   backgroundColor: AppColors.bgPrimary,
                   // TODO: replace with assets/images/profile.png
                   backgroundImage: AssetImage(
-                    'assets/images/1738805907855.jpg',
+                    'assets/images/1738805907855.png',
                   ),
                   // child: const Icon(Icons.person, size: 100, color: AppColors.textSecondary),
                 ),
